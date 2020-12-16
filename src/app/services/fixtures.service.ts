@@ -14,7 +14,7 @@ export class FixturesService {
     return this.http.get<Fixture[]>(`https://prem-fixtures.azurewebsites.net/api/Fixtures?searchTerm=${searchTerm}&count=1000&skip=0`);
   }
 
-  // displayFixtures(searchTerm: string): Observable<Fixture[]> {
-  //   return this.http.get<Fixture[]>(`https://prem-fixtures.azurewebsites.net/api/Fixtures`);
-  // }
+  displayFixtures(): Observable<Fixture[]> {
+    return this.http.get<Fixture[]>(`https://prem-fixtures.azurewebsites.net/api/Fixtures?&count=1000&skip=0`);
+  }
 }

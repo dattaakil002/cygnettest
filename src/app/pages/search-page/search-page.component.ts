@@ -14,21 +14,36 @@ import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 export class SearchPageComponent implements OnInit {
 
   searchResults$: Observable<Fixture[]>;
+  searchedResults$: Fixture[];
 
   searchField = new FormControl();
+  searchvalue : string;
 
   displayedColumns: string[] = ['fixtureName', 'kickoff', 'venue'];
 
-  constructor(private fixturesService: FixturesService,  private spinnerService: Ng4LoadingSpinnerService) { }
+  constructor(private fixturesService: FixturesService) { }
 
   ngOnInit() {
     // if(this.searchField.value.length>4){
-      this.spinnerService.show();
+      // this.spinnerService.show();
     this.searchResults$ = this.searchField.valueChanges.pipe(
       switchMap(val => this.fixturesService.getFixtures(val))
     );
-    this.spinnerService.hide();
+    // this.spinnerService.hide();
   // }
+  // console.log(this.searchResults$);
+
+    this.fixturesService.displayFixtures().subscribe((result: Fixture[])=>{
+      this.searchedResults$ = result;
+    })
+
+  }
+
+  searchchange(){
+    this.searchResults$ = this.searchField.valueChanges.pipe(
+      switchMap(val => this.fixturesService.getFixtures(val))
+    );
+    console.log(this.searchResults$);
   }
 
   hometeam(element){

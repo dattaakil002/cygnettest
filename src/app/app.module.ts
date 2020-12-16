@@ -7,12 +7,14 @@ import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { MaterialModule } from './modules/material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
+import { SearchfilterPipe } from './searchfilter.pipe';
+// import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchPageComponent
+    SearchPageComponent,
+    SearchfilterPipe
   ],
   imports: [
     BrowserModule,
@@ -21,7 +23,7 @@ import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    Ng4LoadingSpinnerModule.forRoot()
+    // Ng4LoadingSpinnerModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
