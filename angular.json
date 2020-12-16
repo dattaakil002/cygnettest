@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "au-demo-fixtures"
+    }
+  },
+  "defaultProject": "au-demo-fixtures",
+  "cli": {
+    "analytics": false
+  }
 }
